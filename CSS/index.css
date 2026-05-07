@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root{
+    --primary-color:black;
+    --color-white:white;
+    --secondary-color:rgb(218, 218, 128);
+
+}
 *{
     font-family: "DM Sans", sans-serif;
 }
@@ -7,7 +14,7 @@ body{
     padding: 0;
 }
 nav{
-    background-color: #030712;
+    background-color: var(--primary-color);
 }
 .nav_items{
     display: flex;
@@ -33,15 +40,72 @@ nav{
     height: 40px;
     width: fit-content;
 }
+.consultation_button div svg{
+    color:var(--color-white) !important;
+}
 .consultation_button{
     display: flex;
     gap: 20px;
     align-items: center;
 }
-.consultation_button button{
+.consultation_button .button{
     border: none;
-    padding: 10px 30px;
+    padding: 15px 30px;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 600;
+    background-color: var(--secondary-color);
+    color: var(--color-white);
+    position: relative;
+    overflow:clip;
+    cursor: pointer;
+    
+}
+.consultation_button .button_text{
+ position: relative;
+ top:0px;
+ left:0px;
+ z-index: 1;
+}
+.consultation_button .button .hov_button{
+    background-color: var(--color-white);
+    height: 100%;
+    width:0%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content:"";
+    contain:"";
+    transition: all .3s ease-in-out;
+}
+.consultation_button .button:hover{
+    color:var(--secondary-color)
+}
+.consultation_button .button:hover .hov_button{
+    width: 100%;
+}
+
+/* media query  */
+@media (max-width:480px){
+    .navigation{
+    padding: 12px 0px;
+}
+.logo img{
+    height: 30px;
+
+}
+.nav_items{
+    display:none;
+
+}
+.consultation_button{
+    display: none;
+
+}
+.menu{
+    display: block;
+    color:var(--color-white);
+    cursor: pointer;
+}
+
 }
